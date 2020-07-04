@@ -70,8 +70,20 @@
             android:layout_margin="5dp"
             android:text="ALert"
             />
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioButton"
+        android:layout_margin="5dp"
+        android:text="radio"/>
 
 
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/imageView"
+            android:src="@drawable/smartphone"
+            />
 
     </GridLayout>
 
