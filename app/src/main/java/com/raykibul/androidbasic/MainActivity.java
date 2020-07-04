@@ -11,20 +11,21 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     Button buttonTutorial,toastButton,editTextButton;
+    Button textViewButton;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        buttonTutorial=findViewById(R.id.button_tutorial);
-        toastButton =findViewById(R.id.toastButton);
-        editTextButton=findViewById(R.id.editTextButton);
+        Initialize();
 
         editTextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+
                 startActivity(intent);
 
             }
@@ -48,10 +49,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        textViewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+                intent.putExtra("INTENT_VALUE","TEXTVIEW");
+                startActivity(intent);
+            }
+        });
 
 
+    }
 
 
-
+    private  void  Initialize(){
+        buttonTutorial=findViewById(R.id.button_tutorial);
+        toastButton =findViewById(R.id.toastButton);
+        editTextButton=findViewById(R.id.editTextButton);
+        textViewButton=findViewById(R.id.textViewButton);
     }
 }
