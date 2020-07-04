@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -15,8 +16,10 @@ import com.google.android.material.snackbar.Snackbar;
 public class MainActivity extends AppCompatActivity {
 
     Button buttonTutorial,toastButton,editTextButton;
-    Button textViewButton,snackBarButton;
+    Button textViewButton,snackBarButton,progressButton;
     ConstraintLayout constraintLayout;
+
+    ProgressBar progressBar;
 
 
     @Override
@@ -26,6 +29,13 @@ public class MainActivity extends AppCompatActivity {
 
         Initialize();
 
+        progressButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
+            }
+        });
+        
         editTextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,5 +91,7 @@ public class MainActivity extends AppCompatActivity {
         editTextButton=findViewById(R.id.editTextButton);
         textViewButton=findViewById(R.id.textViewButton);
         constraintLayout=findViewById(R.id.constraintLayout);
+        progressButton=findViewById(R.id.progressButton);
+        progressBar=findViewById(R.id.progressbar);
     }
 }
