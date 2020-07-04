@@ -17,15 +17,19 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textviewButton"
-            android:text="TextView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/button_tutorial"
+            android:layout_margin="5dp"
+            android:text="@string/buttonText"
             />
+
+
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:id="@+id/toastButton"
+            android:layout_margin="5dp"
             android:text="Toast"
             />
 
