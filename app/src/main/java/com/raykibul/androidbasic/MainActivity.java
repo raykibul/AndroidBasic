@@ -1,8 +1,10 @@
 package com.raykibul.androidbasic;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     Button buttonTutorial,toastButton,editTextButton;
     Button textViewButton,snackBarButton,progressButton;
     ConstraintLayout constraintLayout;
+    Button alertButton;
 
     ProgressBar progressBar;
 
@@ -29,13 +32,40 @@ public class MainActivity extends AppCompatActivity {
 
         Initialize();
 
+        alertButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+             new  AlertDialog.Builder(MainActivity.this).
+                     setTitle("Wanring!!")
+                     .setMessage("THIS IS AN ALERT")
+                     .setCancelable(false)
+                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                         @Override
+                         public void onClick(DialogInterface dialog, int which) {
+                             dialog.dismiss();
+                         }
+                     })
+                     .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                         @Override
+                         public void onClick(DialogInterface dialog, int which) {
+                           dialog.cancel();
+                         }
+                     })
+                     .show();
+
+
+
+            }
+        });
+
+
         progressButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
             }
         });
-        
+
         editTextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,5 +123,6 @@ public class MainActivity extends AppCompatActivity {
         constraintLayout=findViewById(R.id.constraintLayout);
         progressButton=findViewById(R.id.progressButton);
         progressBar=findViewById(R.id.progressbar);
+        alertButton=findViewById(R.id.alertButton);
     }
 }
