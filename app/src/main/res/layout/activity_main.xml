@@ -32,7 +32,13 @@
             android:layout_margin="5dp"
             android:text="Toast"
             />
-
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/editTextButton"
+            android:layout_margin="5dp"
+            android:text="Edit Text"
+            />
 
     </GridLayout>
 
