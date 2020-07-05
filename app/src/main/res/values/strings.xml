@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Android Basic</string>
     <string name="buttonText">Button</string>
+    <string-array name="countryName">
+        <item>Banlgadesh</item>
+        <item>India</item>
+        <item>Pakistan</item>
+        <item>America</item>
+    </string-array>
+
 </resources>

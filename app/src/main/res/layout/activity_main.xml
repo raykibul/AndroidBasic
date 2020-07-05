@@ -85,6 +85,27 @@
             android:src="@drawable/smartphone"
             />
 
+        <CheckBox
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="Check"
+            android:layout_margin="5dp"
+            android:id="@+id/checkbox"
+            />
+      <Switch
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/mySwitch"
+          android:layout_margin="5dp"
+          />
+
+        <Spinner
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/mySpinner"
+            android:layout_margin="5dp"/>
+
+
     </GridLayout>
 
 
@@ -96,5 +117,8 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></ProgressBar>
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ProgressBar>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

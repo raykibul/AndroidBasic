@@ -8,10 +8,15 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
+import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -24,6 +29,9 @@ public class MainActivity extends AppCompatActivity  {
     ConstraintLayout constraintLayout;
     Button alertButton;
     RadioButton radioButton;
+    CheckBox checkBox;
+    Switch mySwitch;
+    Spinner mySpinner;
 
     ProgressBar progressBar;
 
@@ -33,7 +41,48 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Initialize();
+         Initialize();
+         final ArrayAdapter<CharSequence>myadapter=ArrayAdapter.createFromResource(this,R.array.countryName,android.R.layout.simple_spinner_item);
+         myadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+         mySpinner.setAdapter(myadapter);
+
+         mySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+             @Override
+             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                 String countryName=myadapter.getItem(position).toString();
+                 Toast.makeText(MainActivity.this, countryName, Toast.LENGTH_SHORT).show();
+             }
+
+             @Override
+             public void onNothingSelected(AdapterView<?> parent) {
+
+             }
+         });
+
+     
+
+        mySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                    Toast.makeText(MainActivity.this, "ON", Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(MainActivity.this, "OFF", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                    Toast.makeText(MainActivity.this, "Checked", Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(MainActivity.this, "not checked", Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
         radioButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -129,6 +178,7 @@ public class MainActivity extends AppCompatActivity  {
 
 
     private  void  Initialize(){
+        checkBox=findViewById(R.id.checkbox);
         snackBarButton=findViewById(R.id.snackbarButton);
         buttonTutorial=findViewById(R.id.button_tutorial);
         toastButton =findViewById(R.id.toastButton);
@@ -139,5 +189,7 @@ public class MainActivity extends AppCompatActivity  {
         progressBar=findViewById(R.id.progressbar);
         alertButton=findViewById(R.id.alertButton);
         radioButton=findViewById(R.id.radioButton);
+        mySwitch=findViewById(R.id.mySwitch);
+        mySpinner=findViewById(R.id.mySpinner);
     }
 }
