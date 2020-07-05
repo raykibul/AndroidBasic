@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity  {
     CheckBox checkBox;
     Switch mySwitch;
     Spinner mySpinner;
+    Button listViewButton;
 
     ProgressBar progressBar;
 
@@ -46,6 +47,15 @@ public class MainActivity extends AppCompatActivity  {
          myadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
          mySpinner.setAdapter(myadapter);
 
+         listViewButton.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent= new Intent(MainActivity.this,MainActivity3.class);
+                 startActivity(intent);
+             }
+         });
+
+
          mySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
              @Override
              public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -59,7 +69,7 @@ public class MainActivity extends AppCompatActivity  {
              }
          });
 
-     
+
 
         mySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -191,5 +201,6 @@ public class MainActivity extends AppCompatActivity  {
         radioButton=findViewById(R.id.radioButton);
         mySwitch=findViewById(R.id.mySwitch);
         mySpinner=findViewById(R.id.mySpinner);
+        listViewButton=findViewById(R.id.listViewButton);
     }
 }
