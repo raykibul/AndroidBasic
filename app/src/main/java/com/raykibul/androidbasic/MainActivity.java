@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity  {
     Switch mySwitch;
     Spinner mySpinner;
     Button listViewButton;
-
+    Button webViewButton;
     ProgressBar progressBar;
 
 
@@ -46,6 +46,14 @@ public class MainActivity extends AppCompatActivity  {
          final ArrayAdapter<CharSequence>myadapter=ArrayAdapter.createFromResource(this,R.array.countryName,android.R.layout.simple_spinner_item);
          myadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
          mySpinner.setAdapter(myadapter);
+
+         webViewButton.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent= new Intent(MainActivity.this,MainActivity4.class);
+                 startActivity(intent);
+             }
+         });
 
          listViewButton.setOnClickListener(new View.OnClickListener() {
              @Override
@@ -202,5 +210,6 @@ public class MainActivity extends AppCompatActivity  {
         mySwitch=findViewById(R.id.mySwitch);
         mySpinner=findViewById(R.id.mySpinner);
         listViewButton=findViewById(R.id.listViewButton);
+        webViewButton=findViewById(R.id.webViewButton);
     }
 }
